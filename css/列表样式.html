@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <style>
+        ul{
+            /*list-style-type: square;*/
+            /*list-style-type: circle;*/
+            list-style-type: none;
+            /*list-style-position: inside;*/
+            /*list-style-position: outside;*/
+            /*list-style-image: url("https://file.67tool.com/file/icon/e1fcb491-e713-4196-8197-25a1defb3d76.png");*/
+            /*list-style-image: url("❤");*/
+            /*list-style-type: disc;*/
+        }
+       ul li:before{
+            content:'💦';
+            margin-right: 5px;
+            margin-left: -5px;
+        }
+        ol{
+            /*list-style-type: decimal-leading-zero;*/
+            list-style-type: lower-roman;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>列表项1</li>
+    <li>列表项2</li>
+    <li>列表项3</li>
+    <li>列表项4</li>
+</ul>
+<ol>
+    <li>有序列表1</li>
+    <li>有序列表2</li>
+    <li>有序列表3</li>
+    <li>有序列表4</li>
+</ol>
+<dl>
+    <dt>前端学习</dt>
+    <dd>我们这里有前端开发课程</dd>
+    <dd>我们这里有JAVA开发课程</dd>
+    <dd>我们这里有Python开发课程</dd>
+</dl>
+</body>
+</html>

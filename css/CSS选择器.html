@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器</title>
+    <style>
+        /*1.*: */
+        *{
+
+            color:red;
+        }
+        /*标签选择器*/
+        span{
+            display: block;
+        }
+        /*类选择器*/
+        .wrapper{
+            color: #00ff04;
+        }
+        /*ID选择器*/
+        #content{
+            color: #ffc800;
+        }
+        /*派出选择器*/
+        ul.box2 li{
+            color: #1721e0
+        }
+    </style>
+</head>
+<body>
+<p>这是P标签</p>
+<strong>这是Strong标签</strong>
+<br><br>
+<div class="wrapper">这是一个类选择器修饰的div标签</div>
+<p id="content">这是ID选择器修饰的内容</p>
+
+<ul class="box2">
+    <li>li001</li>
+    <li>li002</li>
+    <li>li003
+        <ul>
+            <li>subli1</li>
+            <li>subli2</li>
+            <li>subli3</li>
+            <li>subli4</li>
+        </ul>
+    </li>
+</ul>
+<ul class="box1">
+    <li>li001</li>
+    <li>li002</li>
+    <li>li003</li>
+</ul>
+</body>
+</html>

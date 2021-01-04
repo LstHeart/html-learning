@@ -1,0 +1,73 @@
+<!--按!+tab 或html:5+tab 会自动生成文档结构-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端开发-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--1.div: 用来布局的,没有具体含义.层-->
+<div>
+    abc
+    <div>
+        efh
+    </div>
+</div>
+
+<!--2.hx: 标题,从1级到6级,1级最大,6级最小,会自动加粗,有默认字号-->
+<h1>前端课程</h1>
+<h2>JAVA开发</h2>
+<h6>大前端</h6>
+
+<!--3.p: 表示段落,相当于一个回车-->
+<p >觉得工作没前途吗？
+    对新职业充满幻想吗？
+    最近是否翻阅过招聘广告，准备寻找下一个起点？
+    如果这样，不如看看Discovery探索频道能给你哪些选择：</p>
+
+<!--4.br: 单标签,表示换行-->
+最近是否翻阅过招聘广告，准备寻找下一个起点？<br />
+对新职业充满幻想吗？ <br />
+
+<!--5.hr: 生成一条水平线,主要起装饰作用.属于单标签-->
+<hr />
+<hr color="red" height="50px" width="80%"/>
+
+<!--6.a: 实现链接跳转.target属性: _blank;新窗口打开;_self,默认值,当前窗口-->
+<a href="http://baidu.com" title="百度">baidu</a>
+<a href="01_HTML文档结构.html" title="文档结构" target="_blank">文档结构_blank</a>
+<a href="01_HTML文档结构.html" title="文档结构" target="_self">文档结构_self</a>
+
+<!--7.img: 用来加载外部图像.src:用来设定加载的图片的路径. alt:当图像加载不成功时会显示其内容,否则不显示;title: 图片提示-->
+<img src="https://file.67tool.com/file/icon/e1fcb491-e713-4196-8197-25a1defb3d76.png" title="test"  alt=""/>
+<img src="https://file.67tool.com/file/icon/e1fcb47-25a1defb3d6.png" alt="商品2" />
+
+<!--8.span:作用与div一样都是用来布局的,不同的是div会单独占一行,而span不会,span标签用于行内布局-->
+<div>div1</div>
+<div>div2</div>
+<span>span1</span>
+<span>span2</span>
+
+
+<!--9.ul/ol:列表,前者是无序列表.后者是有序列表,它们的列表内容都用的是li标签-->
+<ul>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+</ul>
+<ol>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+</ol>
+
+<!--
+        注意:浏览器不会解析注释
+
+
+-->
+</body>
+</html>

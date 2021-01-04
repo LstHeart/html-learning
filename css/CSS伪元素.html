@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS伪元素</title>
+    <style>
+        p:first-letter{
+            font-size: 30px;
+            font-family: "黑体",serif;
+            color:grey;
+        }
+        p:first-line{
+            text-decoration: underline;
+        }
+        p:before{
+            content: '❤';
+            margin-right: 50px;
+        }
+        p:after{
+            content: '💦';
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+<p>伪元素: 用于创建一些不在文档树中的元素,并为其添加样式.比如可以通过:before
+    来添加在一个元素前增加一些文本,并为这些文本添加一些样式.虽然用户可以看到这些文本,但这些文本实际上不在文档树中.</p>
+</body>
+</html>

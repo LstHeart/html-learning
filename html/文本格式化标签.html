@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本格式化标签</title>
+</head>
+<body>
+<!--文本格式化标签:就是通过标签来美化文本外观的-->
+<!--1.b和strong: 都有加粗作用,但strong除了加粗之外还有强调作用. 注:强调主要用于SEO时,便于提取关键字-->
+<b>加粗</b>
+<strong>加粗且强调</strong>
+
+<!--2.i和em:使文字倾斜,且都是行级标签;em具有强调作用.如果只是简单的倾斜,用i标签就可以了,比如添加图标等.-->
+<i>文字倾斜</i>
+<em>文字倾斜且强调</em>
+
+<!--3.pre:预格式化文本,保留换行和空格及宽度,文字会小一号(块级标签[在浏览器中独占一行])-->
+<pre>
+    预格式化文本,保留
+        换行和空格
+    及宽度.
+</pre>
+
+<!--4.small和big: 分别让文字缩小1号h或放大1号(行级标签[不会独占一行,且不识别宽高]).big在HTML5中淘汰了,但并没有删除.-->
+<!--浏览器支持的最小字号为12px字,如果要显示比12px还要小的字,需要做处理-->
+<p>我是正常文字</p>
+<small>我是小一号文字</small>
+<!--<big>我是大一号文字</big>-->
+
+<!--5.sub和sup:设置文本为下标和上标. 用来调整文本正常显示的基线,且文字会自动小一号.-->
+<p>正常显示: X1+X2=Y</p>
+<p>下标: X<sub>1</sub>+X<sub>2</sub>=Y </p>
+ <p>上标: X<sup>2</sup>+Y<sup>2</sup>=Z</p>
+
+
+<p>1*2=2</p>
+<p>1&times;2=2</p>
+
+
+<!--<table border="1">-->
+<table>
+    <tr>
+        <th>Heading</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>row 1, cell 1</td>
+        <td>row 1, cell 2</td>
+    </tr>
+    <tr>
+        <td>row 2, cell 1</td>
+        <td>row 2, cell 2</td>
+    </tr>
+</table>
+</body>
+</html>

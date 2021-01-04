@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style>
+        div.content[title]{
+            font-weight: bolder;
+        }
+        input[name=usr]{
+            background: #d3e8e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" title="内容">content1</div>
+    <div class="content">content</div>
+    <form action="">
+        <label>
+            <input type="text" name="account" />
+        </label>
+        <label>
+            <input type="text" name="usr" />
+        </label>
+    </form>
+</body>
+</html>

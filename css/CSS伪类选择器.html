@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS伪类选择器</title>
+    <style>
+        a:link{ /*link可以不写*/
+            color: #ff0000;
+        }
+        a:visited{
+            color: #ffff00;
+        }
+        a:hover{
+            color: #0000ff;
+        }
+        a:active{
+            color: #808080;
+        }
+        input:focus{
+            outline: 1px solid #db0f2e;
+        }
+        ul li:first-child{
+            color:red;
+        }
+        ul li:last-child{
+            color: #00ffc4;
+        }
+        ul li:nth-child(2){
+            color: #11ff00;
+        }
+    </style>
+</head>
+<body>
+<a href="#">单击我跳转</a>
+
+<form action="">
+    <label>
+        <input type="text" />
+    </label>
+</form>
+
+<ul>
+    <li>123001</li>
+    <li>123002</li>
+    <li>123003</li>
+</ul>
+</body>
+</html>
