@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.content{
+    background-color: #fff;
+}
+.header,.footer{
+    height: 30px;
+    background-color: #5a5ac2;
+    margin: 10px auto;
+}
+.header li{
+    float: left;
+    margin:5px 5px;
+    border:#fff solid 1px;
+}
+.content{
+    background-color:antiquewhite;
+    height: 600px;
+    margin: 10px auto;
+}
+.content h1{
+    border: 1px saddlebrown solid;
+    text-align: center;
+    font-family: '黑体';
+}
+.content h2{
+    border:#5a5ac2 1px solid;
+    padding-left: 10px;
+}

@@ -1,0 +1,17 @@
+span{
+    font-size: 20px;
+    color: #c8b99c;
+}
+p{
+    background-color: green;
+    font-size: 10px;
+    font-style: italic;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #f0f;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(65, 103, 134);
+}

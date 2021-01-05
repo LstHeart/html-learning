@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.portainer{
+    height: 1250px;
+    width: 1250px;
+    border: 1px solid rgb(151, 151, 151);
+    
+    /* background-color: rgb(209, 165, 165); */
+    overflow: hidden;
+    /* position: absolute; */
+}
+.header,.content,.footer{
+    width:1250px;
+    float:left;
+}
+.header,.footer{
+    height: 41px;
+    background-color: #3b3bf180;
+    text-align: center;
+}
+.header .head-ul{
+    margin: 0px 1em;
+    /* width:1250px; */
+    /* height: 41px; */
+    /* padding-left: 10px; */
+    /* padding-bottom: 10px; */
+    /* background-color: rgb(219, 211, 211); */
+    /* position: absolute; */
+    overflow: hidden;
+    
+}
+
+.head-ul li{
+    float: left;
+    margin:10px 15px;
+}
+.content{
+    /* height: 1200px; */
+    /* border: 1px solid rgb(151, 151, 151); */
+    height: 1168px;
+    background-color: rgb(219, 211, 211);
+    overflow: hidden;
+}
+.content .leftside,.rightside{
+    float: left;
+}
+.content .leftside{
+    width: 70%;
+    border: 1px solid rgb(151, 151, 151);
+    
+}
+.content .rightside{
+    width: 1250*0.3px;
+    margin-top: 90px;
+}
+.content h1{
+    text-align: center;
+    font-family: '黑体';
+    margin: 26px auto;
+}
+
+/* .content .leftside{
+    width: 75%;
+    margin: 0 10px;
+    padding: 0 5px;
+    
+} */
+/* .content .rightside{
+    position: relative;
+    margin-top:85px;
+    margin-left:10px;
+    margin-right:0;
+    width: 20%;
+    overflow: hidden;
+} */
+.content h2{
+    /* border:#5a5ac2 1px solid; */
+    padding-left: 10px;
+}
+.content p{
+    font-family: '楷体';
+    text-indent: 2em;
+    margin: 10px 0;
+    /* line-height: 1; */
+}
+.content h3{
+    font-family: '黑体';
+    /* border: 1px solid #ffffff; */
+    background-color: #3b3bf180;
+    padding: 5px 1em;
+}
+.content ul{
+    /* background-color: #9ee7e1; */
+    border: 1px solid rgb(151, 151, 151);
+    margin-top: -1px;
+    margin-bottom: 10px;
+}
+.content ul li{
+    list-style:disc;
+    margin-left: 2em;
+}
+.footer{
+    /* height: 40px; */
+    margin-top: 0;
+    /* padding-top: 10px; */
+    vertical-align:middle;
+}
