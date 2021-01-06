@@ -1,0 +1,10 @@
+.container{
+    width: 100%;
+}
+.column{
+    float:left;
+    height: 200px;
+}
+.left{
+    background-color: #f00;
+}

@@ -1,0 +1,32 @@
+body {
+    font-size: 18px;
+    min-width: 600px;
+}
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+.left{
+    float: left;
+    width: 100%;
+    background-color: #ff0000;
+
+}
+.content{
+    line-height: 200px;
+    margin-right: 300px;
+}
+.center,.right{
+    float: left;
+    height: 200px;
+    width: 150px;
+    line-height: 200px; /* 字体垂直居中 */
+    /* position: relative; */
+}
+.center{
+    background-color: #ffff00;
+    /* margin-left: -200px; */
+}
+.right{   
+    background-color: #00ff00;
+}
