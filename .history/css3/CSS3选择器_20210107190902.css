@@ -1,0 +1,13 @@
+
+/* class属性值以contnet开头 */
+/* p[class^=content]{ 
+    color: #ff0000;
+} */
+/* class属性值以contnet结尾 */
+/* p[class$=content]{ 
+    color: #ff0000;
+} */
+/* class属性值中包含p */
+p[class*=p]{ 
+    color: #ff0000;
+}
