@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container :not(p){
+            background-color: #4285f4;
+        }
+        p{
+            height: 30px;
+            line-height: 30px;
+            background-color: red;
+        }
+        .div1~.div2{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <a href="#jump1">跳转1</a>
+    <a href="#jump2">跳转2</a>
+    <a href="#jump3">跳转3</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="jump1">这是段落1的内容</p>
+    <p id="jump2">这是段落2的内容</p>
+    <p id="jump3">这是段落3的内容</p>
+
+    <div class="container">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <span>span</span>
+        <em>em</em>
+    </div>
+
+    <div class="div1">dic1</div>
+    <div class="div2">dic2</div>
+    <strong>strong</strong>
+</body>
+</html>
