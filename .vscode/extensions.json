@@ -2,6 +2,7 @@
     "recommendations": [
         "agutierrezr.emmet-keybindings",
         "royaction.color-manager",
-        "wangxiaohui.vscode-block-helper"
+        "wangxiaohui.vscode-block-helper",
+        "adam-bender.commit-message-editor"
     ]
 }
