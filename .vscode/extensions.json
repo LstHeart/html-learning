@@ -7,6 +7,7 @@
         "maixiaojie.git-emoji-zh",
         "donjayamanne.git-extension-pack",
         "redjue.git-commit-plugin",
-        "rioukkevin.vscode-git-commit"
+        "rioukkevin.vscode-git-commit",
+        "jeanwayhwang.vscode-reminder"
     ]
 }
