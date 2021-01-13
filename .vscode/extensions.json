@@ -1,17 +1,14 @@
 {
-    "recommendations": [
-        "agutierrezr.emmet-keybindings",
-        "royaction.color-manager",
-        "wangxiaohui.vscode-block-helper",
-<<<<<<< HEAD
-        "adam-bender.commit-message-editor",
-        "maixiaojie.git-emoji-zh",
-        "donjayamanne.git-extension-pack",
-        "redjue.git-commit-plugin",
-        "rioukkevin.vscode-git-commit",
-        "jeanwayhwang.vscode-reminder"
-=======
-        "adam-bender.commit-message-editor"
->>>>>>> e7c556f82ef639954cc8e673e3997f180c0990af
-    ]
+  "recommendations": [
+    "agutierrezr.emmet-keybindings",
+    "royaction.color-manager",
+    "wangxiaohui.vscode-block-helper",
+    "adam-bender.commit-message-editor",
+    "maixiaojie.git-emoji-zh",
+    "donjayamanne.git-extension-pack",
+    "redjue.git-commit-plugin",
+    "rioukkevin.vscode-git-commit",
+    "jeanwayhwang.vscode-reminder",
+    "adam-bender.commit-message-editor"
+  ]
 }
