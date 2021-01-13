@@ -3,6 +3,10 @@
         "agutierrezr.emmet-keybindings",
         "royaction.color-manager",
         "wangxiaohui.vscode-block-helper",
-        "adam-bender.commit-message-editor"
+        "adam-bender.commit-message-editor",
+        "maixiaojie.git-emoji-zh",
+        "donjayamanne.git-extension-pack",
+        "redjue.git-commit-plugin",
+        "rioukkevin.vscode-git-commit"
     ]
 }
