@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "recommendations": [
     "agutierrezr.emmet-keybindings",
     "royaction.color-manager",
@@ -12,3 +13,14 @@
     "adam-bender.commit-message-editor"
   ]
 }
+=======
+    "recommendations": [
+        "agutierrezr.emmet-keybindings",
+        "royaction.color-manager",
+        "wangxiaohui.vscode-block-helper",
+        "rectcircle.new-file-by-type",
+        "ritwickdey.liveserver",
+        "akamud.vscode-caniuse"
+    ]
+}
+>>>>>>> Stashed changes
