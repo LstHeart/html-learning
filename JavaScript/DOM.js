@@ -17,10 +17,10 @@ document.write("<br/>are you ok?");
 // var newDiv = div.cloneNode(true);
 // alert(newDiv.getUserData("name"));
 
-var myDiv = document.getElementById("myDiv");
-myDiv.style.backgroundColor = "red";
-myDiv.style.border = "solid";
-// alert(myDiv.style.cssText);
-for (var i=0, len=myDiv.style.length; i < len; i++){
-    alert(myDiv.style[i]); //或者 myDiv.style.item(i)
-}
+// var myDiv = document.getElementById("myDiv");
+// myDiv.style.backgroundColor = "red";
+// myDiv.style.border = "solid";
+// // alert(myDiv.style.cssText);
+// for (var i=0, len=myDiv.style.length; i < len; i++){
+//     alert(myDiv.style[i]); //或者 myDiv.style.item(i)
+// }
