@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-组件通信2</title>
+  </head>
+  <body>
+    <div id="app">
+      <app></app>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+      Vue.component("A", {
+        data() {
+          return {
+            msg: "组件A的内容",
+          };
+        },
+        props: ["messages_c"],
+        template: `
+        <div>
+          <B v-bind="$attrs" v-on="$listeners"></B>
+          <input type="text" v-model="$attrs.message_c" />
+        </div>
+        `,
+      });
+      Vue.component("B", {
+        data() {
+          return {
+            msg: "组件B的内容",
+          };
+        },
+        template: `
+        <div>
+          <C v-bind="$attrs" v-on="$listeners"></C>
+        </div>
+        `,
+      });
+      Vue.component("C", {
+        data() {
+          return {
+            msg: "组件C的内容",
+          };
+        },
+        template: `
+        <div>
+          <div @click="cClickHandler">{{$attrs.messages_c}}</div>
+        </div>
+        `,
+        methods: {
+          cClickHandler() {
+            alert(1);
+            this.$emit("getCData", "C的数据");
+          },
+        },
+      });
+
+      var App = {
+        data() {
+          return {
+            msg: "父组件App的内容",
+            messages_c: "hello vue",
+          };
+        },
+        template: `
+        <div>
+          <div>组件入口</div>
+          <A :message_c="messages_c" @getCData="getCData"></A>
+        </div>
+        `,
+        methods: {
+          getCdata(val) {
+            console.log(val);
+          },
+        },
+      };
+      new Vue({
+        el: "#app",
+        data() {
+          return {};
+        },
+        components: {
+          App,
+        },
+        // template: `<App/>`,
+      });
+    </script>
+  </body>
+</html>
