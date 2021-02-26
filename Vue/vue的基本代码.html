@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="lib/vue.js"></script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MVVM中的V层 -->
+    <div id="app">
+      <p>{{msg}}</p>
+      <p v-cloak>{{msg2}}</p>
+      <p v-text="msg3">这里的文本应该不会显示出来</p>
+      <p v-text="msg4">这里的文本应该不会显示出来</p>
+      <p v-html="msg4">v-html</p>
+      <input type="button" value="按钮" v-bind:title="myTitle + '123' " />
+      <input
+        type="button"
+        value="按钮2"
+        :title="myTitle + '123' "
+        v-on:click="show"
+      />
+    </div>
+
+    <script>
+      // 创建一个vue实例
+      //   vm对象就是,MVVM中的VM层
+      var vm = new Vue({
+        el: "#app",
+        // 这里的data就是MVVM中的M,专门用于保存每个页面的数据
+        data: {
+          // 在此处定义页面所用的数据
+          msg: "hello vue!",
+          msg2: "test v-cloak",
+          msg3: "test v-text",
+          msg4: "<h1>测试v-html</h1>",
+          myTitle: "自定义的属性",
+        },
+        methods: {
+          // 在此处定义方法
+          show: function () {
+            console.log("hello!");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue事件修饰符</title>
+    <script src="lib/vue.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .div1{
+            background-color: greenyellow;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+<div class="div1" @click="test">
+    <input type="button" value="按钮">
+</div>
+</div>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            msg:"hello"
+        },
+        methods:{
+            test(){
+                console.log(this.msg);
+            }
+        }
+    });
+</script>
+</body>
+</html>

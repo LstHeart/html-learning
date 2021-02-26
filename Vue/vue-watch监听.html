@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-watch监听</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="msg" />
+      <h3>{{msg}}</h3>
+      <input type="button" value="切换" @click="msg='hello world'" />
+    </div>
+
+    <script type="text/javascript" src="lib/vue.js"></script>
+    <script>
+      var App = {
+        data() {
+          return {
+            msg: "",
+          };
+        },
+        components: {},
+      };
+      var vm = new Vue({
+        el: "#app",
+        data: function () {
+          return {
+            msg: "hello vue!",
+          };
+        },
+        components: {
+          App,
+        },
+        // 如果存在 template 页面会优先加载 template 中的内容,其次才会加载el的模板
+        // template: `<div><App /></div>`,
+        methods: {
+          show() {
+            console.log("调用了show方法");
+          },
+        },
+        filters: {},
+        directives: {},
+        watch: {
+          msg: function (newV, oldV) {
+            console.log(newV, oldV);
+            if (newV === "123") {
+              alert("开始了!");
+            }
+          },
+        },
+
+        // 创建期间生命周期函数
+        beforeCreate() {
+          // Vue实例被完全创建出来前,会执行该方法,此时 data 和 methods 中的数据都还没有初始化
+        },
+        created() {
+          // 第2个生命周期函数,此时Vue实例已被创建,data 和 methods 中的数据都初始化完成
+        },
+        beforeMount() {
+          // 第3个生命周期函数,表示 模板已经在内存中编译完成,但还未渲染到页面中去,页面中的元素只是一些模板字符串
+        },
+        mounted() {
+          // 第4个生命周期函数,表示内存中的模板,已经挂在到页面, 用户可以看到页面了
+          // 注意: mounted 是实例创建期间的最后一个生命周期函数,当执行完此函数,这表示实例已经完全创建好了
+        },
+
+        // 运行期间生命周期函数
+        beforeUpdate() {
+          // 界面数据未更新,数据已被更新
+        },
+        updated() {
+          // 页面数据和内存中的数据已经保持一致
+        },
+
+        // 销毁期间的生命周期函数
+        beforeDestroy() {
+          // 实例销毁之前调用。在这一步，实例仍然完全可用。
+        },
+        destroyed() {
+          // Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+        },
+      });
+    </script>
+  </body>
+</html>

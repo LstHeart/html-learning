@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-组件</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style type="text/css">
+      .default {
+        display: inline-block;
+        line-height: 1;
+        white-space: nowrap;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        -webkit-appearance: none;
+        text-align: center;
+        box-sizing: border-box;
+        outline: none;
+        margin: 0;
+        transition: 0.1s;
+        font-weight: 500;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+      .success {
+        color: #fff;
+        background-color: #67c23a;
+        border-color: #67c23a;
+      }
+      .danger {
+        color: #fff;
+        background-color: #f56c6c;
+        border-color: #f56c6c;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+    </div>
+
+    <script type="text/javascript" src="lib/vue.js"></script>
+    <script>
+      // 局部入口组件的申明
+      var VHeader = {
+        data() {
+          return {};
+        },
+        template: `
+          <div>
+            <div>头部组件</div>
+          </div>
+        `,
+      };
+      var VAside = {
+        data() {
+          return {};
+        },
+        template: `
+          <div>
+            <div>侧边栏组件<VBtn>侧边按钮</VBtn></div>
+
+          </div>
+        `,
+      };
+      Vue.component("VBtn", {
+        data() {
+          return {};
+        },
+        props: ["type"],
+        template: `
+        <!-- slot 作为承载分发内容的出口-->
+        <button class="default" :class="type">
+          <slot name="default">
+            按钮
+          </slot>
+        </button>
+        `,
+      });
+
+      var VContent = {
+        data() {
+          return {};
+        },
+        template: `
+          <div>
+            <div>内容区组件</div>
+            <VBtn type="success">登录</VBtn>
+            <VBtn type="danger" slot="default">注册</VBtn>
+            <VBtn type="danger" slot="other"></VBtn>
+          </div>
+        `,
+      };
+      var App = {
+        data() {
+          return {};
+        },
+        methods: {
+          clickHandler() {
+            console.log(this);
+          },
+        },
+        components: {
+          VHeader,
+          VAside,
+          VContent,
+        },
+        template: `
+        <div>
+          <VHeader />
+          <VAside />
+          <VContent />
+          <button @click='clickHandler'>显示</button>
+
+        </div>
+
+        `,
+      };
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            msg: "hello vue!",
+          };
+        },
+        // 挂载子组件
+        components: {
+          //   App:App,
+          App,
+        },
+        // 父组件可以直接使用了
+        template: `
+        <div>
+            <App></App>
+        </div>
+
+        `,
+        methods: {
+          show() {
+            console.log("调用了show方法");
+          },
+        },
+        filters: {},
+        directives: {},
+
+        // 创建期间生命周期函数
+        beforeCreate() {
+          // Vue实例被完全创建出来前,会执行该方法,此时 data 和 methods 中的数据都还没有初始化
+        },
+        created() {
+          // 第2个生命周期函数,此时Vue实例已被创建,data 和 methods 中的数据都初始化完成
+        },
+        beforeMount() {
+          // 第3个生命周期函数,表示 模板已经在内存中编译完成,但还未渲染到页面中去,页面中的元素只是一些模板字符串
+        },
+        mounted() {
+          // 第4个生命周期函数,表示内存中的模板,已经挂在到页面, 用户可以看到页面了
+          // 注意: mounted 是实例创建期间的最后一个生命周期函数,当执行完此函数,这表示实例已经完全创建好了
+        },
+
+        // 运行期间生命周期函数
+        beforeUpdate() {
+          // 界面数据未更新,数据已被更新
+        },
+        updated() {
+          // 页面数据和内存中的数据已经保持一致
+        },
+
+        // 销毁期间的生命周期函数
+        beforeDestroy() {
+          // 实例销毁之前调用。在这一步，实例仍然完全可用。
+        },
+        destroyed() {
+          // Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+        },
+      });
+      // console.log(vm);
+    </script>
+  </body>
+</html>
