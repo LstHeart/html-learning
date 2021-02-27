@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link :to="{name:'home'}">跳转首页</router-link>
+      <router-view></router-view>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+      var ComDesc = {
+        data() {
+          return {
+            msg: "",
+            to: {},
+            from: {},
+          };
+        },
+        template: `
+        <div>{{msg}}</div>
+        `,
+        created() {
+          console.log(1);
+          this.msg = "前端页面";
+        },
+        // 在当前组件的内部,监听路由信息的变化
+        watch: {
+          $route(to, from) {
+            // console.log("from:" + this.from);
+            // console.log("to:" + this.to);
+            // 发送ajax请求
+            this.msg = to.params.id;
+          },
+        },
+      };
+      var Timeline = {
+        template: `
+        <div>
+          <router-link :to="{name:'comDesc',params:{id:'frontend'}}">前端</router-link>
+          <router-link :to="{name:'comDesc',params:{id:'backend'}}">后端</router-link>
+          <router-view></router-view>
+        </div>
+        `,
+      };
+      var Pins = { template: `<div>我是沸点页面</div>` };
+      var Home = {
+        template: `
+        <div>
+          <router-link to="/home/timeline">首页</router-link>
+          <router-link to="/home/pins">沸点</router-link>
+          <router-view></router-view>
+        </div>
+        `,
+      };
+      var routes = [
+        {
+          path: "/home",
+          name: "home",
+          component: Home,
+          children: [
+            {
+              path: "timeline",
+              name: "timeline",
+              component: Timeline,
+              children: [
+                {
+                  name: "comDesc",
+                  path: "/timeline/:id",
+                  component: ComDesc,
+                },
+              ],
+            },
+            {
+              path: "pins",
+              name: "pins",
+              component: Pins,
+            },
+          ],
+        },
+      ];
+      var router = new VueRouter({
+        routes,
+      });
+      new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link :to="{name:'home'}">首页</router-link>
+      <router-view></router-view>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+      var Song = { template: `<div>歌曲页面</div></div>` };
+      var Movie = { template: `<div>电影页面</div></div>` };
+      var Home = {
+        template: `
+          <div>
+            首页内容
+            <br />
+            <router-link to="/home/song">歌曲</router-link>
+            <router-link to="/home/movie">电影</router-link>
+            <router-view></router-view>
+          </div>
+        `,
+      };
+      var routes = [
+        {
+          path: "/home",
+          name: "home",
+          component: Home,
+          children: [
+            {
+              path: "song",
+              component: Song,
+            },
+            {
+              path: "movie",
+              component: Movie,
+            },
+          ],
+        },
+      ];
+      var router = new VueRouter({
+        routes,
+      });
+      new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="lib/vue.js"></script>
+    <script>
+      Vue.component("subCom", {
+        template: `<div class="subCom"></div>`,
+      });
+      var App = {
+        data() {
+          return {
+            msg: "app",
+            isShow: false,
+          };
+        },
+        template: `
+          <div class="app">
+            <input type="text" ref="btn" v-show="isShow">按钮1</input>
+            <subCom ref="abc"></subCom>
+          </div>
+          `,
+        beforeCreate() {
+          console.log("isShow:" + this.isShow);
+        },
+        created() {
+          console.log("created:" + this.$refs.btn);
+
+          console.log("isShow:" + this.isShow);
+        },
+        beforeMount() {
+          if (this.$refs.btn) {
+            console.log("beforeMount:" + this.$refs.btn.outerHTML);
+          } else {
+            console.log("beforeMount:" + this.$refs.btn);
+          }
+        },
+        mounted() {
+          // console.log("mounted:" + this.$refs.btn);
+          this.$refs.btn && console.log("mounted:" + this.$refs.btn.outerHTML);
+          console.log(this.$refs.abc);
+          this.isShow = true;
+          console.log("isShow:" + this.isShow);
+          this.$nextTick(() => {
+            // 在DOM更新循环结束之后执行回调函数,在修改数据之后使用此方法在回调函数中获取更新之后的DOM
+            this.$refs.btn.focus();
+          });
+          // this.$refs.btn.focus();
+        },
+        updated() {
+          // this.$refs.btn.focus();
+        },
+      };
+      new Vue({
+        el: "#app",
+        data() {
+          return {};
+        },
+        components: {
+          App,
+        },
+        template: `<App />`,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app></app>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/axios.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+      var Home = { template: "<div>Home页面</div>" };
+      var Login = { template: "<div>Login页面</div>" };
+      var App = {
+        data() {
+          return {};
+        },
+        methods: {
+          sendAjax() {
+            // 模拟类似cookie的机制
+            this.$axios.interceptors.request.use((config) => {
+              console.log(config);
+              var token = localStorage.getItem("token");
+              if (token) {
+                config.headers["token"] = token;
+              }
+            });
+
+            this.$axios.default.baseURI = "http://127.0.0.1:9999/";
+            // 并发请求
+            // var r1 = this.$axios.get("");
+            // var r2 = this.$axios.get("");
+            // this.$axios
+            //   .all([r1, r2])
+            //   .then(
+            //     this.$axios.spread((res1, res2) => {
+            //       this.res1 = res1.data;
+            //       this.res2 = res2.data;
+            //     })
+            //   )
+            //   .catch((err) => {
+            //     console.log(err);
+            //   });
+            this.$axios
+              .get("/Vue/vue-axios.html#/login")
+              .then((res) => {
+                // console.log(res.data);
+                console.log(res.status);
+                console.log(res.statusText);
+                console.log(res.headers);
+                console.log(res.config);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          },
+        },
+        template: `
+        <div>
+          <button @click="sendAjax">发请求</button>
+          <router-link to="/home">Home</router-link>
+        </div>
+        `,
+      };
+      var routes = [
+        {
+          path: "/home",
+          name: "home",
+          component: Home,
+          children: [],
+        },
+        {
+          path: "/login",
+          name: "login",
+          component: Login,
+          children: [],
+        },
+      ];
+      var router = new VueRouter({
+        routes,
+      });
+      Vue.prototype.$axios = axios;
+      new Vue({
+        el: "#app",
+        router,
+        components: {
+          App,
+        },
+      });
+    </script>
+  </body>
+</html>

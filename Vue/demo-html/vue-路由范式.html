@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link :to="{name:'login'}">登录页面</router-link>
+      <router-link :to="{name:'register'}">注册</router-link>
+      <router-link :to="{name:'userP',params:{id:1}}">用户1</router-link>
+      <router-link :to="{name:'userQ',UserQuery:{userId:2}}">用户2</router-link>
+      <router-view></router-view>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+      // 地址栏上路由范式
+      // (1) XXX.html#/user/1 params 动态路由参数
+      // (2) ooo.html#/user?userId=1 query
+
+      var Login = {
+        template: `<div>登录页面</div>`,
+      };
+      var Register = {
+        template: `<div>注册页面</div>`,
+      };
+      var UserParams = {
+        template: `<div>我是用户1</div>`,
+        created() {
+          console.log(this.$router);
+          console.log(this.$route.params.id);
+        },
+      };
+      var UserQuery = {
+        template: `<div>我是用户2</div>`,
+      };
+      var routes = [
+        {
+          path: "/login",
+          name: "login",
+          component: Login,
+        },
+        {
+          path: "/register",
+          name: "register",
+          component: Register,
+        },
+        {
+          path: "/user/:id",
+          name: "userP",
+          component: UserParams,
+        },
+        {
+          path: "/user",
+          name: "userQ",
+          component: UserQuery,
+        },
+      ];
+      // Vue.use(VueRouter);
+      var router = new VueRouter({
+        routes,
+      });
+      new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>

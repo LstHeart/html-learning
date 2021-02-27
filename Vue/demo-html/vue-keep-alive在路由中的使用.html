@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link :to="{name:'home'}">首页</router-link>
+      <router-link :to="{name:'pins'}">沸点</router-link>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <script>
+      var Home = {
+        template: `
+        <div id='home'>
+          首页
+        </div>
+        `,
+        created() {
+          console.log("首页组件已创建");
+        },
+        mounted() {
+          console.log("首页组件已挂载");
+        },
+        destroyed() {
+          console.log("首页组件已销毁");
+        },
+      };
+      var Pins = {
+        template: `
+        <div id='pins'>
+          <h3 @click="clickHandler">沸点</h3>
+        </div>
+        `,
+        methods: {
+          clickHandler(e) {
+            e.target.style.color = "red";
+          },
+        },
+        created() {
+          console.log("沸点组件已创建");
+        },
+        mounted() {
+          console.log("沸点组件已挂载");
+        },
+        destroyed() {
+          console.log("沸点组件已销毁");
+        },
+      };
+      var routes = [
+        {
+          path: "/home",
+          name: "home",
+          component: Home,
+          children: [],
+        },
+        {
+          path: "/pins",
+          name: "pins",
+          component: Pins,
+          children: [],
+        },
+      ];
+      var router = new VueRouter({
+        routes,
+      });
+      new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>
