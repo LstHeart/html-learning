@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue-组件通信3</title>
+  </head>
+  <body>
+    <div id="app">
+      <app></app>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+      //中央事件总线
+      var bus = new Vue();
+      Vue.component("brother2", {
+        data() {
+          return {
+            msg: "hello brother2",
+          };
+        },
+        template: `
+        <div>
+          <p>我是老大</p>
+          <input type="text" v-model="msg" @input="passData(msg)" />
+        </div>
+        `,
+        methods: {
+          passData(val) {
+            // 触发全局事件globalEvent
+            bus.$emit("globalEvent", val);
+          },
+        },
+      });
+      Vue.component("brother1", {
+        data() {
+          return {
+            msg: "hello brother1",
+            brother2Msg: "",
+          };
+        },
+        template: `
+        <div>
+          <div>我是老二</div>
+          <p>老大传过来的数据:{{brother2Msg}}</p>
+        </div>
+        `,
+        mounted() {
+          // 绑定全局事件globalEvent事件
+          bus.$on("globalEvent", (val) => {
+            this.brother2Msg = val;
+            console.log(brother2Msg);
+          });
+        },
+      });
+      var App = {
+        data() {
+          return {
+            msg: "hello Vue!",
+          };
+        },
+        template: `
+        <div>
+          <p>组件入口</p>
+          <brother1></brother1>
+          <brother2></brother2>
+        </div>
+
+        `,
+      };
+      new Vue({
+        el: "#app",
+        data() {
+          return {};
+        },
+        components: {
+          App,
+        },
+      });
+    </script>
+  </body>
+</html>

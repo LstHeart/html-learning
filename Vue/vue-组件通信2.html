@@ -13,32 +13,6 @@
 
     <script src="lib/vue.js"></script>
     <script>
-      Vue.component("A", {
-        data() {
-          return {
-            msg: "组件A的内容",
-          };
-        },
-        props: ["messages_c"],
-        template: `
-        <div>
-          <B v-bind="$attrs" v-on="$listeners"></B>
-          <input type="text" v-model="$attrs.message_c" />
-        </div>
-        `,
-      });
-      Vue.component("B", {
-        data() {
-          return {
-            msg: "组件B的内容",
-          };
-        },
-        template: `
-        <div>
-          <C v-bind="$attrs" v-on="$listeners"></C>
-        </div>
-        `,
-      });
       Vue.component("C", {
         data() {
           return {
@@ -57,12 +31,38 @@
           },
         },
       });
+      Vue.component("B", {
+        data() {
+          return {
+            msg: "组件B的内容",
+          };
+        },
+        template: `
+        <div>
+          <C v-bind="$attrs" v-on="$listeners"></C>
+        </div>
+        `,
+      });
+      Vue.component("A", {
+        data() {
+          return {
+            msg: "组件A的内容",
+          };
+        },
+        props: ["messages_c"],
+        template: `
+        <div>
+          <B v-bind="$attrs" v-on="$listeners"></B>
+         <!-- <input type="text" v-model="$attrs.message_c" />-->
+        </div>
+        `,
+      });
 
       var App = {
         data() {
           return {
             msg: "父组件App的内容",
-            messages_c: "hello vue",
+            messages_c: "hello vue!",
           };
         },
         template: `
@@ -72,7 +72,7 @@
         </div>
         `,
         methods: {
-          getCdata(val) {
+          getCData(val) {
             console.log(val);
           },
         },
