@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>搜狗文章匹配</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="../Vue/lib/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      axios.defaults.withCredentials = true;
+      axios.defaults.crossDomain = true;
+      axios.defaults.headers.get["Content-Type"] =
+        "application/x-www-form-urlencoded";
+      Vue.prototype.$axios = axios;
+      var App = {
+        data() {
+          return {
+            requestUrl:
+              "http://weixin.sogou.com/weixin?type=2&query=%E7%94%B5%E5%BD%B1&ie=utf8&_sug_=y&_sug_type_=&w=01019900&sut=2733&sst0=1467722753275&lkt=1%2C1467722753168%2C1467722753168",
+          };
+        },
+        template: `
+        <div>
+            <div>
+            <button @click="sendAjax">点击获取信息</button>
+            </div>
+            <br />
+            <div>搜索结果链接:</div>
+            <ul>
+                <li style="list-style:none;">
+                    <div>
+                    链接:<a href="#"></a>
+                    <p>title:</p>
+                    <p>发文账号:</p>
+                    <p>发布时间:</p>
+                    <p>翻页链接:</p>
+                    <p>取页数:</p>
+                    </div>
+                </li>
+            </ul>
+        </div>`,
+        methods: {
+          sendAjax() {
+            this.$axios
+              .get(this.requestUrl)
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          },
+        },
+      };
+      new Vue({
+        el: "#app",
+        data() {
+          return {};
+        },
+        created() {
+          console.log("APP已创建");
+        },
+        components: {
+          App,
+        },
+        template: `<div><app /></div>`,
+      });
+    </script>
+  </body>
+</html>

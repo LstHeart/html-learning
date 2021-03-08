@@ -1,3 +1,14 @@
 .autogit
 .history
 Vue/module/node_modules
+Vue/vue-porject/node_modules
+Vue/vue-porject/dist/
+Vue/vue-porject/npm-debug.log*
+Vue/vue-porject/yarn-debug.log*
+Vue/vue-porject/yarn-error.log*
+Vue/vue-porject/.idea
+Vue/vue-porject/.vscode
+Vue/vue-porject/*.suo
+Vue/vue-porject/*.ntvs*
+Vue/vue-porject/*.njsproj
+Vue/vue-porject/*.sln
